@@ -191,8 +191,8 @@ Each plugin declares its identity via a manifest:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/portfolio-microkernel.git
-cd portfolio-microkernel
+git clone https://github.com/<your-username>/Portfolio-website.git
+cd Portfolio-website
 ```
 
 ### 2. Install Dependencies
@@ -216,7 +216,7 @@ Edit `server/.env`:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/portfolio
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/portfolio?retryWrites=true&w=majority
 JWT_SECRET=your_jwt_secret_here
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
@@ -452,7 +452,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/portfolio
+      - MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/portfolio?retryWrites=true&w=majority
       - NODE_ENV=production
     depends_on:
       - mongo
@@ -569,7 +569,7 @@ jobs:
 |---|---|---|
 | `VITE_API_URL` | `client/.env` | Backend API base URL |
 | `PORT` | `server/.env` | Express server port (default: 5000) |
-| `MONGO_URI` | `server/.env` | MongoDB connection string |
+| `MONGO_URI` | `server/.env` | MongoDB Atlas connection string (`mongodb+srv://...`) |
 | `JWT_SECRET` | `server/.env` | Secret for JWT signing (admin plugin) |
 | `NODE_ENV` | `server/.env` | `development` or `production` |
 | `CLIENT_URL` | `server/.env` | Allowed CORS origin |

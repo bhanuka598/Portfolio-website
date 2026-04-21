@@ -91,8 +91,6 @@ portfolio-microkernel/
 │   │
 │   ├── index.html
 │   ├── vite.config.js
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
 │   └── package.json
 │
 ├── server/                          # Node.js + Express Backend (Optional Data Layer)

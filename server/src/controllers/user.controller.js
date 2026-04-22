@@ -143,7 +143,7 @@ const updateMe = async (req, res, next) => {
 };
 
 // @desc    Change admin password
-// @route   PUT /api/auth/change-password
+// @route   PATCH /api/auth/change-password
 // @access  Private
 const changePassword = async (req, res, next) => {
   try {

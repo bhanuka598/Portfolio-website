@@ -24,6 +24,6 @@ router.get('/me', authMiddleware, getMe);
 router.put('/me', authMiddleware, updateMe);
 
 // PUT  /api/auth/change-password  — change password
-router.put('/change-password', authMiddleware, changePassword);
+router.patch('/change-password', authMiddleware, changePassword);
 
 module.exports = router;

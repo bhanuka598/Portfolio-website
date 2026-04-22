@@ -95,6 +95,12 @@ portfolio-microkernel/
 │
 ├── server/                          # Node.js + Express Backend (Optional Data Layer)
 │   ├── src/
+|   |   ├── utils/
+│   │   │   ├── otp.util.js          # Generate OTP using (Crypto randomInt)
+|   |   |
+|   |   ├── services/
+│   │   │   ├── email.service.js     # Nodemailer Gmail transporter
+|   |   |
 │   │   ├── config/
 │   │   │   ├── db.js                # MongoDB connection (Mongoose)
 │   │   │   └── env.js               # Environment variable loader

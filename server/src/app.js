@@ -4,6 +4,7 @@ const errorMiddleware = require('./middleware/error.middleware');
 const loggerMiddleware = require('./middleware/logger.middleware');
 
 // Route imports
+const authRoute = require('./routes/auth.route');
 const projectsRoute = require('./routes/projects.route');
 const blogRoute = require('./routes/blog.route');
 const contactRoute = require('./routes/contact.route');
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(loggerMiddleware);
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
+app.use('/api/auth', authRoute);
 app.use('/api/projects', projectsRoute);
 app.use('/api/blog', blogRoute);
 app.use('/api/contact', contactRoute);

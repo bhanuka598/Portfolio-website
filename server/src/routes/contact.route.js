@@ -8,6 +8,6 @@ router.post('/', submitContact);
 
 // Protected routes (Admin only)
 router.get('/', authMiddleware, getContacts);
-router.put('/:id/read', authMiddleware, markAsRead);
+router.patch('/:id/read', authMiddleware, markAsRead);
 
 module.exports = router;

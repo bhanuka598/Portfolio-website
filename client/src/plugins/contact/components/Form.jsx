@@ -1,6 +1,6 @@
 const telegramSVG = (
   <svg
-    className="w-4 md:w-6 aspect-square"
+    className="h-5 w-5 md:h-6 md:w-6"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ const Form = () => {
           />
           <button
             type="submit"
-            className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
+            className="mt-5 inline-flex w-fit items-center gap-3 rounded-md border border-[#E6E8EB] bg-picto-primary px-6 py-3 text-[18px] font-semibold leading-none text-white shadow-[0_8px_18px_rgba(153,41,251,0.28)] transition-all duration-300 hover:scale-[1.02] hover:bg-picto-primary-dark max-lg:mx-auto lg:mt-12.5"
           >
             Submit {telegramSVG}
           </button>

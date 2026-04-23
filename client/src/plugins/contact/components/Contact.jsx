@@ -5,7 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Address from "./Address";
 import Form from "./Form";
-import SocialMedia from "../common/socialMedia/SocialMedia";
+import SocialMedia from "../../../core-services/ui/SocialMedia";
 
 const addressData = [
   {

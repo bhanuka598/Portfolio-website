@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "./../../assets/logo.png";
+import logo from "@/assets/logo.png";
 import { Link } from "react-scroll";
 
 const navItems = [
@@ -8,7 +8,7 @@ const navItems = [
   { id: 3, name: "Process", url: "work-process" },
   { id: 4, name: "Portfolio", url: "portfolio" },
   { id: 5, name: "Blog", url: "blog" },
-  { id: 6, name: "Services", url: "services" },
+  { id: 6, name: "Contact", url: "contact" },
 ];
 
 const handleMenuClick = () => {
@@ -16,7 +16,7 @@ const handleMenuClick = () => {
     document.activeElement.blur();
   }
 };
-
+ 
 const menu = navItems.map((item) => (
   <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
     <Link
@@ -36,10 +36,10 @@ const menu = navItems.map((item) => (
     </Link>
   </li>
 ));
-
+ 
 const NavBar = () => {
   const [position, setPosition] = useState(0);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setPosition(window.scrollY);
@@ -49,7 +49,7 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+ 
   return (
     <div
       className={`sticky top-0 ${
@@ -79,18 +79,18 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className={`menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black`}
+              className="menu menu-lg dropdown-content rounded-box z-[1] mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black"
             >
               {menu}
             </ul>
           </div>
-
+ 
           <Link
             href="#introduction"
-            to={`introduction`}
+            to="introduction"
             smooth={true}
             duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5"
+            className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
           >
             <img src={logo} className="h-8 sm:h-14 rounded-2xl" alt="logo" />
             <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
@@ -98,16 +98,16 @@ const NavBar = () => {
             </p>
           </Link>
         </div>
-
+ 
         <div className="lg:flex items-center">
           <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium md:shrink-0">
             {menu}
           </ul>
-          <p className="">
+          <p>
             <Link
-              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
+              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary cursor-pointer"
               href="#contact"
-              to={`contact`}
+              to="contact"
               smooth={true}
               duration={900}
             >
@@ -119,5 +119,5 @@ const NavBar = () => {
     </div>
   );
 };
-
+ 
 export default NavBar;

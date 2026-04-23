@@ -14,6 +14,7 @@
 @theme {
   --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
   --breakpoint-xs: 23.125rem; /* COMMENT: 363px */
+  --breakpoint-lg: 64rem; /* 1024px — ensure lg is defined */
   --breakpoint-xxl: 82.5rem; /* COMMENT: 1320px */
   --color-picto-primary: #9929fb;
   --color-picto-primary-dark: #650fa0;

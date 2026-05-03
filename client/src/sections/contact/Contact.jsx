@@ -28,12 +28,12 @@ function Contact() {
   return (
     <section id="contact" className="py-12">
         <div className="container mx-auto px-4">
-            <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(26,44,69,0.88),rgba(15,27,45,0.94))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
+            <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(22,36,56,0.84),rgba(8,16,28,0.98))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
                 <SectionTitle>Contact</SectionTitle>
 
-                <div className="flex flex-col items-start gap-8 text-left md:flex-row md:items-start md:justify-between">
-                    <div className="flex flex-col items-start text-left">
-                        <p className='mb-4 max-w-xl text-lg text-[var(--text-muted)]'>Feel free to reach out to me via email or through my social media channels.</p>
+                <div className="grid gap-10 text-left lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:items-start">
+                    <div className="flex w-full flex-col items-start text-left">
+                        <p className='mb-4 text-justify text-lg text-[var(--text-muted)]'>Feel free to reach out to me via email or through my social media channels.</p>
                         <ul className='space-y-3 text-lg text-[var(--text-muted)]'>
                             {contactData.map((contact) => {
                                 const Icon = contact.icon
@@ -51,7 +51,7 @@ function Contact() {
                         </ul>
                     </div>
 
-                    <div className="flex w-full flex-col items-start text-left md:w-auto">
+                    <div className="flex w-full justify-start lg:justify-end">
                         <ContactForm />
                     </div>
                 </div>

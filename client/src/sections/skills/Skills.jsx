@@ -8,7 +8,7 @@ function Skills() {
   return (
     <section id="skills" className="py-12">
         <div className="container mx-auto px-4">
-            <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(26,44,69,0.88),rgba(15,27,45,0.94))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
+            <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(22,36,56,0.84),rgba(8,16,28,0.98))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
                 <SectionTitle>Skills</SectionTitle>
 
                 <div className="overflow-hidden">

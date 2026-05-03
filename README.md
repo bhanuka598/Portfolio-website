@@ -1,134 +1,133 @@
-# 🧩 Microkernel Portfolio Website
+# 🗂️ Portfolio Website
 
-> A highly modular, plug-and-play portfolio website built with the **MERN Stack** using **Microkernel Architecture** — a small, stable core with independent, enable/disable plugins.
+> A full-stack portfolio website built with the **MERN Stack** — clean, section-based architecture on the frontend, RESTful API backend with MongoDB Atlas, OTP email verification, and JWT authentication.
 
 ---
 
 ## 📐 Architecture Overview
 
-```
-Small Core (Microkernel) + Independent Plugins (Extensions)
-```
-
-The system is divided into:
-- **Core (Microkernel)** — minimal, stable, handles only essential responsibilities
-- **Plugins (Extensions)** — independent, plug-and-play modules loaded at runtime
-- **Core Services** — shared utilities (logging, error handling, auth, UI components)
-- **Plugin System** — discover → load → register → render pipeline
-- **Data Layer** *(optional)* — REST API + MongoDB for dynamic content
-- **Configuration** — `config/plugins.json` drives which plugins are active
+- **Frontend** — React + Vite with a clean, section-based architecture
+- **Backend** — Node.js + Express REST API
+- **Database** — MongoDB Atlas (single cluster, separate collections per section)
+- **Auth** — JWT + OTP email verification via Nodemailer (Gmail)
+- **Styling** — Tailwind CSS v4 + DaisyUI v4
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-portfolio-microkernel/
+Portfolio-website/
 │
-├── client/                          # React.js Frontend (Vite)
+├── client/                             # React.js Frontend (Vite)
 │   ├── public/
-│   │   └── favicon.ico
+│   │   └── logo.svg
 │   ├── src/
-│   │   ├── core/                    # 🔵 MICROKERNEL CORE
-│   │   │   ├── AppShell.jsx         # Application Shell — root layout host
-│   │   │   ├── RoutingManager.jsx   # React Router config & dynamic routes
-│   │   │   ├── PluginLoader.js      # Loads plugins dynamically (lazy import)
-│   │   │   ├── PluginRegistry.js    # Stores registered plugin manifests
-│   │   │   ├── GlobalState.jsx      # React Context — shared state
-│   │   │   ├── ConfigManager.js     # Reads config/plugins.json
-│   │   │   ├── EventBus.js          # Pub/sub communication between plugins
-│   │   │   └── ThemeManager.js      # Dark/light theme management
-│   │   │
-│   │   ├── core-services/           # 🟢 CORE SERVICES
-│   │   │   ├── LoggingService.js    # Centralized logger
-│   │   │   ├── ErrorHandler.jsx     # Global error boundary + handler
-│   │   │   ├── AuthService.js       # Optional auth logic (JWT/session)
-│   │   │   └── ui/                  # Shared UI components
-│   │   │       ├── Button.jsx
-│   │   │       ├── Card.jsx
+│   │   ├── components/                 # Reusable UI pieces
+│   │   │   ├── ui/                     # Dumb components — no business logic
+│   │   │   │   ├── Button.jsx
+│   │   │   │   ├── Card.jsx
+│   │   │   │   ├── Badge.jsx
+│   │   │   │   └── SectionTitle.jsx
+│   │   │   └── layout/                 # Structural wrappers
 │   │   │       ├── Navbar.jsx
 │   │   │       ├── Footer.jsx
-│   │   │       └── Spinner.jsx
+│   │   │       └── ScrollToTop.jsx
 │   │   │
-│   │   ├── plugins/                 # 🟣 PLUGINS (EXTENSIONS)
-│   │   │   ├── about/
-│   │   │   │   ├── index.jsx        # About page — bio, education, experience
-│   │   │   │   ├── manifest.json    # { name, route, enabled, version }
-│   │   │   │   └── about.test.jsx
+│   │   ├── sections/                   # Each portfolio section owns its folder
+│   │   │   ├── introduction/
+│   │   │   │   └── Introduction.jsx
+│   │   │   ├── profile/
+│   │   │   │   └── Profile.jsx
 │   │   │   ├── projects/
-│   │   │   │   ├── index.jsx        # Projects showcase — tech stack, links
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── projects.test.jsx
+│   │   │   │   ├── Projects.jsx
+│   │   │   │   └── ProjectCard.jsx
+│   │   │   ├── certificates/
+│   │   │   │   ├── Certificates.jsx
+│   │   │   │   └── CertificateCard.jsx
 │   │   │   ├── skills/
-│   │   │   │   ├── index.jsx        # Skills & proficiencies
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── skills.test.jsx
-│   │   │   ├── contact/
-│   │   │   │   ├── index.jsx        # Contact form + social links
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── contact.test.jsx
-│   │   │   ├── blog/                # Optional plugin
-│   │   │   │   ├── index.jsx        # Blog/articles (system design, devops)
-│   │   │   │   ├── manifest.json
-│   │   │   │   └── blog.test.jsx
-│   │   │   └── admin/               # Optional plugin
-│   │   │       ├── index.jsx        # Admin panel — manage content
-│   │   │       ├── manifest.json
-│   │   │       └── admin.test.jsx
+│   │   │   │   ├── Skills.jsx
+│   │   │   │   └── SkillBadge.jsx
+│   │   │   ├── blog/
+│   │   │   │   ├── Blog.jsx
+│   │   │   │   └── BlogCard.jsx
+│   │   │   ├── testimonial/
+│   │   │   │   └── Testimonial.jsx
+│   │   │   ├── workProcess/
+│   │   │   │   └── WorkProcess.jsx
+│   │   │   └── contact/
+│   │   │       ├── Contact.jsx
+│   │   │       └── ContactForm.jsx
 │   │   │
-│   │   ├── config/
-│   │   │   └── plugins.json         # 🟡 Master config — enable/disable plugins
+│   │   ├── data/                       # All content as plain JS objects
+│   │   │   ├── projects.js             # Edit here to update your projects
+│   │   │   ├── certificates.js
+│   │   │   ├── skills.js
+│   │   │   └── testimonials.js
+│   │   │
+│   │   ├── hooks/                      # Custom React hooks
+│   │   │   ├── useScrollPosition.js    # Scroll-aware navbar
+│   │   │   └── useContactForm.js       # Contact form state + submission
+│   │   │
+│   │   ├── services/                   # API calls — components never call fetch directly
+│   │   │   ├── contactService.js
+│   │   │   └── projectService.js
 │   │   │
 │   │   ├── assets/
 │   │   │   ├── images/
-│   │   │   └── fonts/
+│   │   │   └── icons/
 │   │   │
 │   │   ├── styles/
-│   │   │   └── globals.css          # Tailwind CSS global styles
+│   │   │   └── globals.css             # Tailwind CSS + DaisyUI + custom theme vars
 │   │   │
-│   │   ├── App.jsx                  # Root component — mounts AppShell
-│   │   └── main.jsx                 # Vite entry point
+│   │   ├── App.jsx                     # Assembles all sections top to bottom
+│   │   └── main.jsx                    # Vite entry point
 │   │
 │   ├── index.html
 │   ├── vite.config.js
+│   ├── .env
+│   ├── .env.example
 │   └── package.json
 │
-├── server/                          # Node.js + Express Backend (Optional Data Layer)
+├── server/                             # Node.js + Express Backend
 │   ├── src/
-|   |   ├── utils/
-│   │   │   ├── otp.util.js          # Generate OTP using (Crypto randomInt)
-|   |   |
-|   |   ├── services/
-│   │   │   ├── email.service.js     # Nodemailer Gmail transporter
-|   |   |
-│   │   ├── config/
-│   │   │   ├── db.js                # MongoDB connection (Mongoose)
-│   │   │   └── env.js               # Environment variable loader
+│   │   ├── utils/
+│   │   │   └── otp.util.js             # Generate & verify OTP (crypto.randomInt)
 │   │   │
-│   │   ├── models/                  # Mongoose schemas
+│   │   ├── services/
+│   │   │   └── email.service.js        # Nodemailer Gmail transporter + OTP templates
+│   │   │
+│   │   ├── config/
+│   │   │   ├── db.js                   # MongoDB Atlas connection (Mongoose)
+│   │   │   └── env.js                  # Environment variable loader
+│   │   │
+│   │   ├── models/                     # Mongoose schemas
+│   │   │   ├── User.js                 # Admin user (bcrypt hashed password)
 │   │   │   ├── Project.js
 │   │   │   ├── Blog.js
 │   │   │   └── Contact.js
 │   │   │
-│   │   ├── routes/                  # Express route handlers
+│   │   ├── routes/
+│   │   │   ├── auth.route.js           # Register / Login / OTP flows
 │   │   │   ├── projects.route.js
 │   │   │   ├── blog.route.js
 │   │   │   └── contact.route.js
 │   │   │
 │   │   ├── controllers/
+│   │   │   ├── user.controller.js      # Auth + OTP logic
 │   │   │   ├── projects.controller.js
 │   │   │   ├── blog.controller.js
 │   │   │   └── contact.controller.js
 │   │   │
 │   │   ├── middleware/
-│   │   │   ├── auth.middleware.js   # JWT verification
-│   │   │   ├── error.middleware.js  # Global error handler
-│   │   │   └── logger.middleware.js
+│   │   │   ├── auth.middleware.js      # JWT Bearer token verification
+│   │   │   ├── error.middleware.js     # Global error handler
+│   │   │   └── logger.middleware.js    # Colour-coded request logger
 │   │   │
-│   │   └── app.js                   # Express app setup
+│   │   └── app.js                      # Express app — middleware + routes
 │   │
-│   ├── server.js                    # Entry point
-│   ├── .env                         # Environment variables (never commit)
+│   ├── server.js                       # Entry point — connect DB then start server
+│   ├── .env                            # Never commit this
 │   ├── .env.example
 │   └── package.json
 │
@@ -139,8 +138,8 @@ portfolio-microkernel/
 │
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml                   # CI — lint, test on push/PR
-│       └── deploy.yml               # CD — deploy to Vercel/Netlify/AWS
+│       ├── ci.yml                      # CI — lint + test on push/PR
+│       └── deploy.yml                  # CD — deploy to Vercel on merge to main
 │
 ├── .gitignore
 ├── .eslintrc.js
@@ -150,36 +149,32 @@ portfolio-microkernel/
 
 ---
 
-## ⚙️ Configuration — `config/plugins.json`
+## 🗃️ Database — MongoDB Atlas
 
-This file is the single source of truth for which plugins are active.
+One cluster, one database, separate collections per feature. No cross-collection complexity.
 
-```json
-{
-  "plugins": ["about", "projects", "skills", "contact", "blog"],
-  "theme": "dark",
-  "version": "1.0.0"
-}
 ```
-
-To disable a plugin, simply remove it from the array — no code changes needed.
+MongoDB Atlas
+└── portfolio (database)
+    ├── users        ← admin auth
+    ├── projects     ← portfolio projects
+    ├── blogs        ← blog posts
+    └── contacts     ← contact form submissions
+```
 
 ---
 
-## Plugin Manifest — `plugins/<name>/manifest.json`
+## 🔐 Auth & OTP Flows
 
-Each plugin declares its identity via a manifest:
+Admin registration and sensitive actions use a 2-step OTP flow via Gmail.
 
-```json
-{
-  "name": "projects",
-  "route": "/projects",
-  "label": "Projects",
-  "enabled": true,
-  "version": "1.0.0",
-  "icon": "briefcase"
-}
-```
+| Flow | Step 1 | Step 2 |
+|---|---|---|
+| Register | `POST /api/auth/register/send-otp` | `POST /api/auth/register` |
+| Update Email | `POST /api/auth/update-email/send-otp` | `PUT /api/auth/update-email` |
+| Change Password | `POST /api/auth/change-password/send-otp` | `PUT /api/auth/change-password` |
+
+OTPs are 6 digits, expire in **10 minutes**, and are single-use (deleted after successful verification).
 
 ---
 
@@ -188,9 +183,9 @@ Each plugin declares its identity via a manifest:
 ### Prerequisites
 
 - Node.js >= 18.x
-- npm >= 9.x or yarn
-- MongoDB (local or MongoDB Atlas)
-- Git
+- npm >= 9.x
+- MongoDB Atlas account
+- Gmail account with 2-Step Verification + App Password
 
 ### 1. Clone the Repository
 
@@ -202,17 +197,17 @@ cd Portfolio-website
 ### 2. Install Dependencies
 
 ```bash
-# Install client dependencies
+# Frontend
 cd client && npm install
 
-# Install server dependencies
+# Backend
 cd ../server && npm install
 ```
 
 ### 3. Configure Environment Variables
 
 ```bash
-# In server/
+cd server
 cp .env.example .env
 ```
 
@@ -221,33 +216,42 @@ Edit `server/.env`:
 ```env
 PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/portfolio?retryWrites=true&w=majority
-JWT_SECRET=your_jwt_secret_here
+JWT_SECRET=your_128_char_random_hex_string
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
+
+# Nodemailer — use a Gmail App Password, NOT your Gmail login password
+# Generate at: https://myaccount.google.com/apppasswords
+EMAIL_SERVICE=gmail
+EMAIL_USER=your_gmail@gmail.com
+EMAIL_PASS=xxxx_xxxx_xxxx_xxxx
 ```
 
-### 4. Enable/Disable Plugins
+Edit `client/.env`:
 
-Edit `client/src/config/plugins.json` to control which sections appear:
-
-```json
-{
-  "plugins": ["about", "projects", "skills", "contact"],
-  "theme": "dark"
-}
+```env
+VITE_API_URL=http://localhost:5000
 ```
+
+### 4. Generate a JWT Secret
+
+```bash
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+```
+
+Paste the output as your `JWT_SECRET`.
 
 ### 5. Run the Application
 
 ```bash
-# Terminal 1 — Start the backend
+# Terminal 1 — Backend
 cd server && npm run dev
 
-# Terminal 2 — Start the frontend
+# Terminal 2 — Frontend
 cd client && npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+Frontend: `http://localhost:5173` — Backend: `http://localhost:5000`
 
 ---
 
@@ -260,7 +264,7 @@ The app will be available at `http://localhost:5173`.
 | Unit & Component Tests | Jest + React Testing Library |
 | API / Integration Tests | Jest + Supertest |
 | E2E Tests | Playwright |
-| Test Coverage | Jest `--coverage` |
+| Coverage | Jest `--coverage` |
 
 ### Install Testing Dependencies
 
@@ -277,55 +281,48 @@ npm install --save-dev jest supertest
 ### Running Tests
 
 ```bash
-# Run all client tests
+# Client unit tests
 cd client && npm test
 
-# Run all client tests with coverage report
+# Client tests with coverage report
 cd client && npm run test:coverage
 
-# Run server/API tests
+# Server API tests
 cd server && npm test
 
-# Run E2E tests (requires running app)
+# E2E tests (app must be running)
 cd client && npx playwright test
-
-# Run all tests from root (if using a monorepo runner)
-npm run test:all
 ```
 
 ### Test Structure
 
 ```
-client/src/plugins/
-├── about/
-│   └── about.test.jsx          # Unit test for About plugin
-├── projects/
-│   └── projects.test.jsx       # Unit test for Projects plugin
-├── contact/
-│   └── contact.test.jsx        # Form submission, validation
-└── ...
-
-client/src/core/
-└── PluginLoader.test.js        # Tests plugin discovery & loading
-
+client/src/
+├── sections/
+│   ├── projects/
+│   │   └── Projects.test.jsx
+│   ├── contact/
+│   │   └── Contact.test.jsx
+│   └── ...
+│
 server/src/
 ├── routes/
-│   └── projects.route.test.js  # API route integration tests
+│   └── projects.route.test.js
 └── controllers/
     └── contact.controller.test.js
 ```
 
-### Example — Unit Test (Plugin Component)
+### Example — Component Test
 
 ```jsx
-// plugins/about/about.test.jsx
+// sections/projects/Projects.test.jsx
 import { render, screen } from '@testing-library/react';
-import AboutPlugin from './index';
+import Projects from './Projects';
 
-describe('About Plugin', () => {
-  it('renders the about section', () => {
-    render(<AboutPlugin />);
-    expect(screen.getByRole('heading', { name: /about/i })).toBeInTheDocument();
+describe('Projects Section', () => {
+  it('renders the projects heading', () => {
+    render(<Projects />);
+    expect(screen.getByRole('heading', { name: /projects/i })).toBeInTheDocument();
   });
 });
 ```
@@ -341,7 +338,7 @@ describe('GET /api/projects', () => {
   it('should return a list of projects', async () => {
     const res = await request(app).get('/api/projects');
     expect(res.statusCode).toBe(200);
-    expect(Array.isArray(res.body)).toBe(true);
+    expect(Array.isArray(res.body.data)).toBe(true);
   });
 });
 ```
@@ -352,11 +349,10 @@ describe('GET /api/projects', () => {
 // e2e/navigation.spec.js
 const { test, expect } = require('@playwright/test');
 
-test('loads the About section', async ({ page }) => {
+test('scrolls to projects section', async ({ page }) => {
   await page.goto('http://localhost:5173');
-  await page.click('text=About');
-  await expect(page).toHaveURL(/.*about/);
-  await expect(page.locator('h1')).toBeVisible();
+  await page.click('text=Portfolio');
+  await expect(page.locator('#portfolio')).toBeVisible();
 });
 ```
 
@@ -364,10 +360,10 @@ test('loads the About section', async ({ page }) => {
 
 | Module | Target |
 |---|---|
-| Core (Microkernel) | ≥ 90% |
-| Plugins | ≥ 80% |
+| Sections (components) | ≥ 80% |
 | API Routes | ≥ 85% |
 | Controllers | ≥ 80% |
+| Auth / OTP flows | ≥ 90% |
 
 ---
 
@@ -375,15 +371,15 @@ test('loads the About section', async ({ page }) => {
 
 ### Option A — Vercel (Recommended for Frontend)
 
-1. Push your code to GitHub.
+1. Push to GitHub.
 2. Go to [vercel.com](https://vercel.com) → **New Project** → Import repo.
-3. Set the **Root Directory** to `client`.
+3. Set **Root Directory** to `client`.
 4. Set **Build Command**: `npm run build`
 5. Set **Output Directory**: `dist`
 6. Add environment variables under **Project Settings → Environment Variables**.
-7. Click **Deploy**.
+7. Deploy.
 
-For the backend, deploy separately to Railway, Render, or a VPS and update the frontend's API base URL.
+Deploy the backend separately to **Railway** or **Render**, then set `VITE_API_URL` in Vercel to point to it.
 
 ---
 
@@ -393,10 +389,10 @@ For the backend, deploy separately to Railway, Render, or a VPS and update the f
 2. Set **Base directory**: `client`
 3. Set **Build command**: `npm run build`
 4. Set **Publish directory**: `client/dist`
-5. Add environment variables under **Site Configuration → Environment Variables**.
+5. Add environment variables.
 6. Deploy.
 
-Add a `client/public/_redirects` file for React Router SPA support:
+Add `client/public/_redirects` for SPA support:
 
 ```
 /*  /index.html  200
@@ -410,12 +406,10 @@ Add a `client/public/_redirects` file for React Router SPA support:
 |---|---|
 | S3 + CloudFront | Host React static build |
 | EC2 / ECS | Run Express API |
-| MongoDB Atlas | Managed database |
+| MongoDB Atlas | Managed cloud database |
 | Route 53 | DNS management |
 | ACM | SSL/TLS certificates |
 | CodePipeline | CI/CD automation |
-
-**Frontend Deploy to S3:**
 
 ```bash
 cd client
@@ -426,9 +420,7 @@ aws cloudfront create-invalidation --distribution-id YOUR_CF_ID --paths "/*"
 
 ---
 
-### Option D — Docker (Self-Hosted / Any Cloud)
-
-Build and run with Docker Compose:
+### Option D — Docker
 
 ```bash
 # From project root
@@ -458,18 +450,6 @@ services:
     environment:
       - MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/portfolio?retryWrites=true&w=majority
       - NODE_ENV=production
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo:7
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-
-volumes:
-  mongo_data:
 ```
 
 **`docker/Dockerfile.client`:**
@@ -504,11 +484,10 @@ CMD ["node", "server.js"]
 
 ### CI/CD Pipeline — GitHub Actions
 
-**`.github/workflows/ci.yml`** — runs on every push and pull request:
+**`.github/workflows/ci.yml`:**
 
 ```yaml
 name: CI
-
 on:
   push:
     branches: [main, develop]
@@ -523,8 +502,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: cd client && npm ci
-      - run: cd client && npm test -- --coverage
+      - run: cd client && npm ci && npm test -- --coverage
 
   test-server:
     runs-on: ubuntu-latest
@@ -533,8 +511,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: cd server && npm ci
-      - run: cd server && npm test
+      - run: cd server && npm ci && npm test
 
   build:
     needs: [test-client, test-server]
@@ -547,11 +524,10 @@ jobs:
       - run: cd client && npm ci && npm run build
 ```
 
-**`.github/workflows/deploy.yml`** — deploys on merge to `main`:
+**`.github/workflows/deploy.yml`:**
 
 ```yaml
 name: Deploy
-
 on:
   push:
     branches: [main]
@@ -573,21 +549,13 @@ jobs:
 |---|---|---|
 | `VITE_API_URL` | `client/.env` | Backend API base URL |
 | `PORT` | `server/.env` | Express server port (default: 5000) |
-| `MONGO_URI` | `server/.env` | MongoDB Atlas connection string (`mongodb+srv://...`) |
-| `JWT_SECRET` | `server/.env` | Secret for JWT signing (admin plugin) |
+| `MONGO_URI` | `server/.env` | MongoDB Atlas connection string |
+| `JWT_SECRET` | `server/.env` | 128-char random hex string for JWT signing |
 | `NODE_ENV` | `server/.env` | `development` or `production` |
 | `CLIENT_URL` | `server/.env` | Allowed CORS origin |
-
----
-
-## ✅ Key Benefits
-
-- **Highly Modular & Scalable** — add sections without touching core code
-- **Add / Remove Features Easily** — toggle plugins in `plugins.json`
-- **Core Remains Stable** — plugins can break independently without crashing the app
-- **Plugins are Independent** — each plugin owns its own route, UI, and tests
-- **Reusability Across Projects** — copy any plugin to another microkernel project
-- **Easy Maintenance & Extension** — new developers can add plugins with zero core knowledge
+| `EMAIL_SERVICE` | `server/.env` | Email provider (default: `gmail`) |
+| `EMAIL_USER` | `server/.env` | Gmail address for sending OTPs |
+| `EMAIL_PASS` | `server/.env` | Gmail App Password (not your account password) |
 
 ---
 

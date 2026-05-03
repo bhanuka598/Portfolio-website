@@ -1,19 +1,22 @@
 import ProjectCard from "./ProjectCard"
 import { projectsData } from "../../data/projects"
+import SectionTitle from "../../components/ui/SectionTitle"
 
 function Projects() {
   return (
-    <section id="projects" className="py-12 bg-slate-50">
-      <div className="container mx-auto">
-        <h1 className='text-3xl font-bold mb-8 text-slate-900'>Projects</h1>
-        <p className='text-gray-700 mt-4'>
-          Here are some of the projects I have worked on. Each project demonstrates my skills in full stack development and my ability to create scalable and efficient web applications.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {projectsData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+    <section id="projects" className="py-12">
+      <div className="container mx-auto px-4">
+        <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(26,44,69,0.88),rgba(15,27,45,0.94))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
+          <SectionTitle>Projects</SectionTitle>
+          <p className='mt-4 max-w-3xl text-[var(--text-muted)]'>
+            Here are some of the projects I have worked on. Each project demonstrates my skills in full stack development and my ability to create scalable and efficient web applications.
+          </p>
         </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                {projectsData.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))}
+                </div>
       </div>
     </section>
   )

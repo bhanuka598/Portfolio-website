@@ -1,6 +1,6 @@
 function SectionTitle({ children }) {
   return (
-    <h2 className='text-2xl font-bold mb-4 text-gray-800 border-b-2 border-gray-300 pb-2'>
+    <h2 className='mb-6 border-b border-[var(--border)] pb-3 text-center text-2xl font-bold tracking-tight text-[var(--text)] md:text-3xl'>
       {children}
     </h2>
   )

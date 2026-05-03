@@ -1,14 +1,14 @@
 function Badge({ children, color }) {
   const colorClasses = {
-    red: 'bg-red-500 text-white',
-    green: 'bg-green-500 text-white',
-    blue: 'bg-blue-500 text-white',
-    yellow: 'bg-yellow-500 text-black',
-    gray: 'bg-gray-500 text-white',
+    red: 'border border-rose-400/25 bg-rose-400/12 text-rose-200',
+    green: 'border border-emerald-400/25 bg-emerald-400/12 text-emerald-200',
+    blue: 'border border-sky-400/25 bg-sky-400/12 text-sky-200',
+    yellow: 'border border-amber-300/25 bg-amber-300/14 text-amber-100',
+    gray: 'border border-white/10 bg-white/6 text-slate-200',
   }
 
   return (
-    <span className={`px-3 py-1 rounded-full text-sm font-medium ${colorClasses[color] || colorClasses.gray}`}>
+    <span className={`rounded-full px-3 py-1 text-sm font-medium backdrop-blur-sm ${colorClasses[color] || colorClasses.gray}`}>
       {children}
     </span>
   )

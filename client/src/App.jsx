@@ -12,7 +12,7 @@ import './index.css'
 
 function App() {
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='min-h-screen bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.12),_transparent_28%),linear-gradient(180deg,_rgba(15,27,45,0.55)_0%,_rgba(7,17,31,0.88)_45%,_rgba(4,11,20,1)_100%)] text-[var(--text)]'>
       <Navbar />
       <ScrollToTop />
       <Introduction />

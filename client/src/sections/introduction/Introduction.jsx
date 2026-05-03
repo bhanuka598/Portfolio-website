@@ -8,10 +8,10 @@ function Introduction() {
         <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(22,36,56,0.84),rgba(8,16,28,0.98))] p-8 shadow-[0_24px_60px_rgba(0,0,0,0.28)] md:p-10">
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.7fr)]">
             <div>
-              <p className="mb-3 text-center text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300/80 lg:text-left">
+              <p className="animated-role mb-3 text-center text-sm font-semibold uppercase tracking-[0.24em] lg:text-left">
                 Full Stack Developer
               </p>
-              <SectionTitle>Introduction</SectionTitle>
+              <SectionTitle className="text-right">Introduction</SectionTitle>
               <p className="text-justify text-lg leading-8 text-[var(--text-muted)]">
                 Welcome to my portfolio. I am a passionate full stack developer with experience across backend and frontend technologies.
                 I enjoy building scalable, efficient web applications that deliver thoughtful user experiences, and I am always eager to

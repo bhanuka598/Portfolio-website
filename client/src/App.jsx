@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Introduction from './sections/introduction/Introduction'
+import Profile from './sections/profile/Profile'
 import './index.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className='flex flex-col min-h-screen'>
       <Navbar />
       <Introduction />
+      <Profile />
       <Footer />
     </div>
   )

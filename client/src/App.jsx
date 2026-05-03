@@ -3,6 +3,7 @@ import Footer from './components/layout/Footer'
 import Introduction from './sections/introduction/Introduction'
 import Profile from './sections/profile/Profile'
 import Projects from './sections/projects/Projects'
+import Certificates from './sections/certificates/Certificates'
 import Skills from './sections/skills/Skills'
 import Contact from './sections/contact/Contact'
 
@@ -15,6 +16,7 @@ function App() {
       <Introduction />
       <Profile />
       <Projects />
+      <Certificates />
       <Skills />
       <Contact />
       <Footer />

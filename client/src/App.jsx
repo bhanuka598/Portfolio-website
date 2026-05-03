@@ -3,7 +3,7 @@ import Footer from './components/layout/Footer'
 import Introduction from './sections/introduction/Introduction'
 import Profile from './sections/profile/Profile'
 import Skills from './sections/skills/Skills'
-import SkillBadge from './sections/skills/SkillBadge'
+import Contact from './sections/contact/Contact'
 import './index.css'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Introduction />
       <Profile />
       <Skills />
-      
+      <Contact />
       <Footer />
     </div>
   )

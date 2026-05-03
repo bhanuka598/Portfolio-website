@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import ScrollToTop from './components/layout/ScrollToTop'
 import Introduction from './sections/introduction/Introduction'
 import Profile from './sections/profile/Profile'
 import Projects from './sections/projects/Projects'
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className='flex flex-col min-h-screen'>
       <Navbar />
+      <ScrollToTop />
       <Introduction />
       <Profile />
       <Projects />

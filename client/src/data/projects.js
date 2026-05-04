@@ -1,6 +1,8 @@
 import PortfolioImage from '../assets/images/Portfolio-website.png';
+import VitaFlowImage from '../assets/images/Daily-habit-tracker.png';
+import NeoWeatherImage from '../assets/images/NeoWeather.png';
 // You can import icons here if you want to show tech stacks with icons
-import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb } from 'react-icons/si';
+import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb, SiKotlin, SiAndroid, SiFlutter } from 'react-icons/si';
 
 export const projectsData = [
   {
@@ -14,4 +16,26 @@ export const projectsData = [
     liveLink: "https://portfolio-website-delta-eight-k2nv7tu1p8.vercel.app/",
     category: "Design"
   },
+  {
+    id: 2,
+    title: "VitaFlow - Daily Habit Tracker",
+    description: "A full-featured habit tracking app built with Kotlin, home screen widget, and a modern UI and seamless user experience.",
+    image: VitaFlowImage,
+    tags: ["Kotlin", "Android", "Shared Preferences"],
+    techIcons: [SiKotlin, SiAndroid],
+    githubLink: "https://github.com/bhanuka598/VitaFlow-Daily-Habit-Tracker.git",
+    liveLink: "",
+    category: "Mobile"
+  },
+  {
+    id: 3,
+    title: "NeoWeather - Weather Forecast App",
+    description: "A weather forecast app built with Flutter, OpenMeteo weather API, featuring weather helper recommendations.",
+    image: NeoWeatherImage,
+    tags: ["Flutter", "Android", "OpenMeteo API"],
+    techIcons: [SiFlutter, SiAndroid],
+    githubLink: "https://github.com/bhanuka598/Flutter-weather-app.git",
+    liveLink: "",
+    category: "Mobile"
+  }
 ];

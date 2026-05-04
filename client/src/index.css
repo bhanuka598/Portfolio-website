@@ -85,8 +85,66 @@ a {
   }
 }
 
+@keyframes nameGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(34, 211, 238, 0);
+  }
+  50% {
+    text-shadow: 0 0 24px rgba(56, 189, 248, 0.36);
+  }
+}
+
+.animated-name {
+  line-height: 1.1;
+  display: block;
+  background-image: linear-gradient(
+    120deg,
+    rgba(224, 242, 254, 0.98) 0%,
+    rgba(56, 189, 248, 0.92) 22%,
+    rgba(165, 243, 252, 1) 40%,
+    rgba(224, 242, 254, 1) 50%,
+    rgba(34, 211, 238, 0.92) 62%,
+    rgba(186, 230, 253, 0.98) 82%,
+    rgba(224, 242, 254, 0.98) 100%
+  );
+  background-size: 220% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation:
+    titleShimmer 4.8s linear infinite,
+    nameGlow 4.2s ease-in-out infinite;
+}
+
+.role-flip-wrap {
+  min-height: 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  perspective: 800px;
+}
+
+@keyframes roleFlipIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+.role-flip {
+  display: block;
+  width: 100%;
+  transform-origin: center top;
+  animation: roleFlipIn 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .animated-role {
-  display: inline-block;
+  display: block;
   background-image: linear-gradient(
     120deg,
     rgba(34, 211, 238, 0.72) 0%,

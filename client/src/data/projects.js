@@ -10,8 +10,8 @@ export const projectsData = [
     image: PortfolioImage,
     tags: ["React", "Tailwind", "Framer Motion"],
     techIcons: [SiReact, SiTailwindcss],
-    githubLink: "https://github.com",
-    liveLink: "https://yourportfolio.com",
+    githubLink: "https://github.com/bhanuka598/Portfolio-website.git",
+    liveLink: "https://portfolio-website-delta-eight-k2nv7tu1p8.vercel.app/",
     category: "Design"
   },
 ];

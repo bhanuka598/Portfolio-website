@@ -13,17 +13,15 @@ function Profile() {
       description: "Creating scalable APIs and server-side logic with Node.js, Express.js, and database integration.",
       icon: ServerCog,
     },
-    {
-      title: "Mobile Development",
-      description: "Exploring mobile-first application design and cross-platform thinking for smooth user experiences.",
-      icon: MonitorSmartphone,
-    },
-    {
-      title: "UI/UX Design",
-      description: "Designing clean, user-focused layouts with attention to usability, visual hierarchy, and interaction flow.",
-      icon: Brush,
-    },
   ]
+  const profileGridClassNames = [
+    "mt-8 grid gap-5",
+    profileAreas.length > 1 ? "md:grid-cols-2" : "",
+    profileAreas.length > 2 ? "xl:grid-cols-3" : "",
+    profileAreas.length > 3 ? "xl:grid-cols-4" : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
 
   return (
     <section id="profile" className="py-12">
@@ -35,7 +33,7 @@ function Profile() {
                     I have experience working with Node.js, Express.js, React, Tailwind CSS, MongoDB and Docker containerization. 
                 </p>
 
-                <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                <div className={profileGridClassNames}>
                     {profileAreas.map((area) => (
                         <div
                             key={area.title}

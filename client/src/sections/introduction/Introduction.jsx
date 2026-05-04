@@ -7,7 +7,6 @@ function Introduction() {
   const roles = [
     "Backend Developer",
     "Frontend Developer",
-    "Mobile Developer",
     "Cloud Enthusiast",
   ]
   const [activeRoleIndex, setActiveRoleIndex] = useState(0)

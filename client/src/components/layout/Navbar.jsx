@@ -12,7 +12,7 @@ function Navbar() {
     <nav className="sticky top-0 z-40 border-b border-white/10 bg-[rgba(7,17,31,0.78)] text-[var(--text)] backdrop-blur-xl">
         <div className="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
             <a href="#introduction" className="text-2xl font-bold tracking-tight text-[var(--text)] transition-colors hover:text-cyan-300">
-              My Portfolio
+              Bhanuka Athukorala
             </a>
             <ul className="flex flex-wrap items-center gap-2 text-sm font-medium text-[var(--text-muted)] md:gap-3">
                 {navItems.map((item) => (

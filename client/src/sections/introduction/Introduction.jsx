@@ -4,6 +4,7 @@ import SectionTitle from "../../components/ui/SectionTitle"
 
 function Introduction() {
   const name = "Bhanuka Athukorala"
+  const heroImageUrl = "https://drive.google.com/file/d/1auZW3VbZiAO0hGTnon5PAzSkkc3f5AQq/preview"
   const roles = [
     "Backend Developer",
     "Frontend Developer",
@@ -48,13 +49,22 @@ function Introduction() {
               </p>
             </div>
 
-            <div className="mx-auto flex w-full max-w-sm justify-center lg:justify-end">
-              <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/6 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.32)] backdrop-blur-sm">
-                <img
-                  src={heroImage}
-                  alt="Portfolio hero"
-                  className="h-full w-full rounded-[1.25rem] object-cover"
-                />
+            <div className="mx-auto flex w-full justify-center lg:justify-end">
+              <div className="relative w-[290px] sm:w-[330px] md:w-[360px] rounded-[2rem] border border-cyan-300/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.04))] p-3 shadow-[0_28px_70px_rgba(0,0,0,0.34)] backdrop-blur-md">
+                <div className="pointer-events-none absolute inset-x-8 bottom-2 h-20 rounded-full bg-cyan-300/12 blur-3xl" />
+                <div className="relative h-[320px] sm:h-[370px] md:h-[410px] w-full overflow-hidden rounded-[1.6rem] border border-white/8 bg-[rgba(7,17,31,0.94)]">
+                  <iframe
+                    src={heroImageUrl}
+                    title="Portfolio hero"
+                    className="h-full w-full border-0"
+                    allow="autoplay"
+                  />
+                  <img
+                    src={heroImage}
+                    alt="Portfolio hero fallback"
+                    className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>

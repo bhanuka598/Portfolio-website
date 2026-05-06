@@ -1,8 +1,10 @@
 import PortfolioImage from '../assets/images/Portfolio-website.png';
 import VitaFlowImage from '../assets/images/Daily-habit-tracker.png';
 import NeoWeatherImage from '../assets/images/NeoWeather.png';
+import PeriodPalImage from '../assets/images/PeriodPal.png';
+import SmartMediCareImage from '../assets/images/SmartMediCare.png';
 // You can import icons here if you want to show tech stacks with icons
-import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb, SiKotlin, SiAndroid, SiFlutter } from 'react-icons/si';
+import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb, SiKotlin, SiAndroid, SiFlutter, SiExpress, SiDocker, SiKubernetes } from 'react-icons/si';
 
 export const projectsData = [
   {
@@ -37,5 +39,27 @@ export const projectsData = [
     githubLink: "https://github.com/bhanuka598/Flutter-weather-app.git",
     liveLink: "",
     category: "Mobile"
+  },
+  {
+    id: 4,
+    title: "PeriodPal - Support for Gender Equity",
+    description: "A system designed to provide support and resources for gender equity initiatives.",
+    image: PeriodPalImage,
+    tags: ["React", "Node.js", "Express.js", "Tailwind CSS", "MongoDB"],
+    techIcons: [SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiMongodb],
+    githubLink: "https://github.com/bhanuka598/PeriodPal.git",
+    liveLink: "https://period-pal-six.vercel.app/",
+    category: "Full Stack"
+  },
+  {
+    id: 5,
+    title: "SmartMediCare - Healthcare Management System",
+    description: "A comprehensive healthcare management system built with microservices and modern web technologies. Appointment scheduling, patient records management, real-time notifications, telemedicine via video calls and symptom checker.",
+    image: SmartMediCareImage,
+    tags: ["React", "Node.js", "Express.js", "Tailwind CSS", "MongoDB", "Microservices", "Docker", "Kubernetes"],
+    techIcons: [SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiMongodb, SiDocker, SiKubernetes],
+    githubLink: "https://github.com/bhanuka598/SmartMediCare.git",
+    liveLink: "",
+    category: "Microservices and Full Stack"
   }
 ];

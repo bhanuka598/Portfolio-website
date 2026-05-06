@@ -1,8 +1,9 @@
 import PortfolioImage from '../assets/images/Portfolio-website.png';
 import VitaFlowImage from '../assets/images/Daily-habit-tracker.png';
 import NeoWeatherImage from '../assets/images/NeoWeather.png';
+import PeriodPalImage from '../assets/images/PeriodPal.png';
 // You can import icons here if you want to show tech stacks with icons
-import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb, SiKotlin, SiAndroid, SiFlutter } from 'react-icons/si';
+import { SiReact, SiTailwindcss, SiNodedotjs, SiMongodb, SiKotlin, SiAndroid, SiFlutter, SiExpress } from 'react-icons/si';
 
 export const projectsData = [
   {
@@ -37,5 +38,16 @@ export const projectsData = [
     githubLink: "https://github.com/bhanuka598/Flutter-weather-app.git",
     liveLink: "",
     category: "Mobile"
+  },
+  {
+    id: 4,
+    title: "PeriodPal - Support for Gender Equity",
+    description: "A system designed to provide support and resources for gender equity initiatives.",
+    image: PeriodPalImage,
+    tags: ["Node.js", "Express.js", "React", "Tailwind CSS", "MongoDB"],
+    techIcons: [SiNodedotjs, SiExpress, SiReact, SiTailwindcss, SiMongodb],
+    githubLink: "https://github.com/bhanuka598/PeriodPal.git",
+    liveLink: "https://period-pal-six.vercel.app/",
+    category: "Full Stack"
   }
 ];

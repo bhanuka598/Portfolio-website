@@ -13,6 +13,11 @@ function Profile() {
       description: "Creating scalable APIs and server-side logic with Node.js, Express.js, and database integration.",
       icon: ServerCog,
     },
+    {
+      title: "Mobile Development",
+      description: "Developing cross-platform mobile apps using Flutter and native Android development with Kotlin.",
+      icon: MonitorSmartphone,
+    },
   ]
   const profileGridClassNames = [
     "mt-8 grid gap-5",
